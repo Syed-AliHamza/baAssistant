@@ -1,0 +1,94 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("SYSTEM_DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  schemas  = ["systemdata"]
+}
+
+model Users {
+  id        Int       @id @default(autoincrement())
+  firstName String
+  lastName  String
+  email     String    @unique
+  status    String
+  country   String?   
+  state     String?   
+  city      String?   
+  street    String?   
+  avatar    String?  
+  clerkId   String? 
+  threads   Threads[]
+
+  @@schema("systemdata")
+}
+
+model Companies {
+  id                   Int      @id @default(autoincrement())
+  name                 String
+  summary              String
+  customerRetentionRate Decimal
+  positiveSentiment    Decimal
+  negativeSentiment    Decimal
+  netSentiment         Decimal
+  products             Products[]
+
+  @@schema("systemdata")
+}
+
+model Products {
+  id          Int       @id @default(autoincrement())
+  name        String
+  image       String
+  description String
+  companyId   Int
+  rating      Decimal
+  earning     Decimal
+  category    String
+  company     Companies @relation(fields: [companyId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@schema("systemdata")
+}
+
+model Competitors {
+  id    Int    @id @default(autoincrement())
+  name  String
+  link  String
+
+  @@schema("systemdata")
+}
+
+model Threads {
+  id        Int       @id @default(autoincrement())
+  userId    Int
+  title     String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  user      Users     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  messages  Messages[]
+
+  @@schema("systemdata")
+}
+
+model Messages {
+  id        Int       @id @default(autoincrement())
+  threadId  Int
+  role      String
+  content   String    @db.VarChar(8000)
+  display   String?   @db.NVarChar(MAX)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  thread    Threads   @relation(fields: [threadId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@schema("systemdata")
+}

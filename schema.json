@@ -1,0 +1,427 @@
+[
+  {
+    "table": "django_migrations",
+    "columns": [
+      {
+        "column_name": "id",
+        "data_type": "bigint",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "applied",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "app",
+        "data_type": "character varying",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "name",
+        "data_type": "character varying",
+        "is_nullable": "NO"
+      }
+    ]
+  },
+  {
+    "table": "job",
+    "columns": [
+      {
+        "column_name": "id",
+        "data_type": "bigint",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "completed_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "is_test",
+        "data_type": "boolean",
+        "is_nullable": "NO"
+      }
+    ]
+  },
+  {
+    "table": "offer",
+    "columns": [
+      {
+        "column_name": "id",
+        "data_type": "bigint",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "seller_id_id",
+        "data_type": "bigint",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "last_seen",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "first_seen",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "migrated",
+        "data_type": "boolean",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "title",
+        "data_type": "character varying",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "url",
+        "data_type": "character varying",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "stock_no",
+        "data_type": "character varying",
+        "is_nullable": "YES"
+      }
+    ]
+  },
+  {
+    "table": "seller_url",
+    "columns": [
+      {
+        "column_name": "id",
+        "data_type": "bigint",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "data",
+        "data_type": "jsonb",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "seller_id",
+        "data_type": "bigint",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "url",
+        "data_type": "character varying",
+        "is_nullable": "YES"
+      }
+    ]
+  },
+  {
+    "table": "snapshot",
+    "columns": [
+      {
+        "column_name": "offer_id_id",
+        "data_type": "bigint",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "id",
+        "data_type": "bigint",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "data",
+        "data_type": "jsonb",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "migrated",
+        "data_type": "boolean",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "job_detail_id_id",
+        "data_type": "bigint",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "url",
+        "data_type": "character varying",
+        "is_nullable": "YES"
+      }
+    ]
+  },
+  {
+    "table": "seller",
+    "columns": [
+      {
+        "column_name": "state_id",
+        "data_type": "bigint",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "is_crawled",
+        "data_type": "boolean",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "id",
+        "data_type": "bigint",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "sitemap_id_id",
+        "data_type": "integer",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "name",
+        "data_type": "character varying",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "country",
+        "data_type": "character varying",
+        "is_nullable": "NO"
+      }
+    ]
+  },
+  {
+    "table": "states",
+    "columns": [
+      {
+        "column_name": "id",
+        "data_type": "bigint",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "region_id",
+        "data_type": "bigint",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "name",
+        "data_type": "character varying",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "code",
+        "data_type": "character varying",
+        "is_nullable": "NO"
+      }
+    ]
+  },
+  {
+    "table": "regions",
+    "columns": [
+      {
+        "column_name": "id",
+        "data_type": "bigint",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "name",
+        "data_type": "character varying",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "code",
+        "data_type": "character varying",
+        "is_nullable": "NO"
+      }
+    ]
+  },
+  {
+    "table": "job_detail",
+    "columns": [
+      {
+        "column_name": "id",
+        "data_type": "bigint",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "completed_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "started_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "status",
+        "data_type": "integer",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "estimated_count",
+        "data_type": "integer",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "error_count",
+        "data_type": "integer",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "scrapped_count",
+        "data_type": "integer",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "retry_count",
+        "data_type": "integer",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "unique_id",
+        "data_type": "uuid",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "job_id_id",
+        "data_type": "bigint",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "seller_id_id",
+        "data_type": "bigint",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "logs_file",
+        "data_type": "character varying",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "used_proxies",
+        "data_type": "ARRAY",
+        "is_nullable": "NO"
+      }
+    ]
+  },
+  {
+    "table": "sitemap",
+    "columns": [
+      {
+        "column_name": "use_proxy",
+        "data_type": "boolean",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "id",
+        "data_type": "integer",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "data",
+        "data_type": "jsonb",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "proxy_type",
+        "data_type": "integer",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "retry_on_failure",
+        "data_type": "boolean",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "name",
+        "data_type": "character varying",
+        "is_nullable": "YES"
+      }
+    ]
+  }
+]

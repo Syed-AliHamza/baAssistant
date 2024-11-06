@@ -1,0 +1,61 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+parameters:
+- name: BRANCH_NAME
+  displayName: Enter the branch name
+  type: string
+  default: 'main'
+
+trigger: none 
+
+variables:
+- name: projectpath
+  value: '/home/ubuntu/cosmic-platform-frontend/' 
+
+jobs:
+- job: 'cosmic_platform_frontend_markival'
+  displayName: 'Cosmic-Platform-Frontend-Markival'
+  pool: 
+    name: 'cosmic-platform '
+    demands: 
+    - agent.name -equals cosmicplatformmarkival
+
+  steps:
+
+    - script: |
+       echo 'Change directory to  $(projectpath)'
+       
+       cd $(projectpath)
+      
+       rm -rf package-lock.json
+       rm -rf .next/
+
+       git fetch --all
+       echo 'Switching to branch ${{ parameters.BRANCH_NAME }}'
+       git switch ${{ parameters.BRANCH_NAME }}
+       
+       
+       git branch
+       git pull
+
+       rm -rf package-lock.json
+       rm -rf .next/
+       
+      displayName: 'Checkout Source branch'
+
+    - script: |
+       
+       cd $(projectpath)
+
+       npm install 
+       #npx prisma generate
+       #npx prisma migrate dev
+       npm run build
+       pm2 restart "nextjs-app" || pm2 start npm --name "nextjs-app" -- start
+       sleep 5
+       pm2 status
+      displayName: 'npm i and npm run build and start'
+
