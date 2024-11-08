@@ -62,9 +62,6 @@
     }
   }
 
- 
-
-
   .chatUser > div {
     display: flex;
     justify-content: end;
@@ -138,7 +135,6 @@
     color: #524e53;
   }
 }
-
 
 @layer utilities {
   .transition-height {
