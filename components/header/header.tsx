@@ -75,7 +75,13 @@ export default function HeaderComponent() {
               className="flex cursor-pointer font-bold"
               onClick={() => router.push('/companyProfile')}
             >
-              Smart BA
+              <img
+                src={'/images/baLogo.png'}
+                alt="Profile Avatar"
+                width={150}
+                height={40}
+                className="rounded-full cursor-pointer"
+              />
             </div>
           </div>
 
