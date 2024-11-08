@@ -72,15 +72,9 @@ export default function HeaderComponent() {
           <div className="flex">
             {/* Logo */}
             <div
-              className="flex cursor-pointer"
+              className="flex cursor-pointer font-bold"
               onClick={() => router.push('/companyProfile')}
             >
-              {/* <Image
-                src="/images/company-logo-lol.svg"
-                alt="Company Logo"
-                width={104}
-                height={31}
-              /> */}
               Smart BA
             </div>
           </div>

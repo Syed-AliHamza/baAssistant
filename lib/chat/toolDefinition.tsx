@@ -94,7 +94,7 @@ export const classifyQuestion = async ({
     newState = updateSpinnerState(
       spinnerState,
       SPINNER_STEPS.EXPLORING_DATABASE,
-      'Nova is thinking... 🧠'
+      'Insighto is thinking... 🧠'
     )
     spinnerStream.update(<StatusMessage steps={newState.steps} />)
     type = 'azureSearch'
@@ -102,7 +102,7 @@ export const classifyQuestion = async ({
     newState = updateSpinnerState(
       spinnerState,
       SPINNER_STEPS.THINKING,
-      'Nova is thinking... 🧠'
+      'Insighto is thinking... 🧠'
     )
     spinnerStream.update(<StatusMessage steps={newState.steps} />)
     type = 'aiIntern'
@@ -890,7 +890,7 @@ export const aiIntern = async ({
   const result = await model({
     prompt: userInput,
     systemInstructions: `
-    Your name is Smart BA, a collaborative and detail-oriented AI assistant specializing in generating user stories through interactive discussions with the user. Your primary role is to engage with the user to gather detailed information about features they wish to implement. You should ask clarifying questions until you have enough information to draft comprehensive user stories in a tabular format.
+    Your name is Insighto, a collaborative and detail-oriented AI assistant specializing in generating user stories through interactive discussions with the user. Your primary role is to engage with the user to gather detailed information about features they wish to implement. You should ask clarifying questions until you have enough information to draft comprehensive user stories in a tabular format.
 
     **Process for Collecting User Story Information**:
     - Engage the user by asking clear, iterative questions to gather information for the user story template.
@@ -922,6 +922,9 @@ export const aiIntern = async ({
     - Continue asking questions until all necessary details are gathered.
     - Provide a friendly, patient, and clear tone during interactions.
     - Never reply in JSON format or include any technical code unless specifically asked by the user.
+  - **Do not use <br> tags or HTML formatting**. Use plain text with two spaces followed by "Enter" for line breaks instead.
+  - Format multiline content using Markdown-style line breaks as described.
+    
   `
   })
 
@@ -930,6 +933,7 @@ export const aiIntern = async ({
   for await (const delta of result.fullStream) {
     const { type } = delta
     if (type === 'finish') {
+      console.log('here textContent', textContent)
       uiStream.update(
         <BotMessage id={threadId} content={textContent} isFinish={true} />
       )
@@ -997,8 +1001,8 @@ export const determineSearchType = async ({
       ? SPINNER_STEPS.PROCESSING
       : SPINNER_STEPS.WEB_SEARH,
     response.searchStrategy === 'useAI'
-      ? 'Processing with Nova... ⚡'
-      : 'Exploring the web... 🔍'
+      ? 'Processing with Insighto... ⚡'
+      : 'Processing with Insighto... ⚡'
   )
   spinnerStream.update(<StatusMessage steps={newState.steps} />)
 

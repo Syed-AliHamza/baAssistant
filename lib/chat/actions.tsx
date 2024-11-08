@@ -346,7 +346,7 @@ export const AI = createAI<AIState, UIState>({
 
     if (aiState) {
       const uiState = getUIStateFromAIState(aiState)
-      // return uiState
+      return uiState
     }
   },
   onSetAIState: async ({ state }) => {
@@ -359,9 +359,9 @@ export const AI = createAI<AIState, UIState>({
       id: chatId,
       messages: messagesList
     }
-    // if (messagesList?.length > 0) {
-    //   await saveChat(chat)
-    // }
+    if (messagesList?.length > 0) {
+      await saveChat(chat)
+    }
   }
 })
 

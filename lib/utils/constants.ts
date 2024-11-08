@@ -42,7 +42,7 @@ export const initialSpinnerState: SpinnerState = {
   steps: [
     {
       id: SPINNER_STEPS.STARTUP,
-      text: 'Nova coming online... 🤖',
+      text: 'Insighto coming online... 🤖',
       isCompleted: false
     }
   ],
