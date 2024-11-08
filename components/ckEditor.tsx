@@ -43,7 +43,6 @@ const Editor: React.FC<EditorProps> = ({
   const handleChange = (content: string) => {
     setValue(content)
   }
-  console.log('here value', value)
   const sourceRef = useRef()
   // Dummy data for demonstration
   const dummyData = [
@@ -53,6 +52,23 @@ const Editor: React.FC<EditorProps> = ({
     { date: '2023-07-04', offers: 20 },
     { date: '2023-07-05', offers: 5 }
   ]
+
+  useEffect(() => {
+    const checkRespondisCopy = () => {
+      const respondingStatus = localStorage.getItem('isCopied')
+      setValue(respondingStatus)
+    }
+
+    checkRespondisCopy()
+
+    window.addEventListener('respondingisCopied', checkRespondisCopy)
+
+    return () => {
+      console.log('Cleaning up event listener')
+      window.removeEventListener('respondingisCopied', checkRespondisCopy)
+    }
+  }, [])
+
   return (
     <div>
       <div className="hidden">

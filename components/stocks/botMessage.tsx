@@ -10,15 +10,19 @@ import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import { StreamableValue, useUIState } from 'ai/rsc'
 import Image from 'next/image'
+import { IconArrowRight } from '@/components/ui/icons'
+import { htmlToMarkdown, markdownToHtml } from '../parser'
 
 export function BotMessage({
   content,
   className,
+  isCopied,
   id,
   isFinish
 }: {
   content: string | StreamableValue<string>
   className?: string
+  isCopied: string
   id: number
   isFinish?: boolean
 }) {
@@ -29,6 +33,12 @@ export function BotMessage({
   const [messages] = useUIState()
   const match = pathname.split('/chat/')
   const routId = match ? +match[1] : null
+
+  const handleMoveToCanvas = text => {
+    localStorage.setItem('isCopied', text)
+    window.dispatchEvent(new Event('respondingisCopied'))
+  }
+
   const handleUnmount = () => {
     localStorage.setItem('isResponding', 'false')
     window.dispatchEvent(new Event('respondingStatusChange'))
@@ -67,6 +77,7 @@ export function BotMessage({
     }
   }, [isFinish])
 
+  console.log(isCopied, 'isCopied')
   return (
     <div
       className={cn(
@@ -85,48 +96,17 @@ export function BotMessage({
           height={30}
         />
       </div>
-      <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
-        <MemoizedReactMarkdown
-          className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
-          remarkPlugins={[remarkGfm, remarkMath]}
-          components={{
-            p({ children }) {
-              return <p className="mb-2 last:mb-0">{children}</p>
-            },
-            code({ inline, className, children, ...props }) {
-              if (children.length) {
-                if (children[0] == '▍') {
-                  return (
-                    <span className="mt-1 animate-pulse cursor-default">▍</span>
-                  )
-                }
-
-                children[0] = (children[0] as string).replace('`▍`', '▍')
-              }
-
-              const match = /language-(\w+)/.exec(className || '')
-
-              if (inline) {
-                return (
-                  <code className={className} {...props}>
-                    {children}
-                  </code>
-                )
-              }
-
-              return (
-                <CodeBlock
-                  key={Math.random()}
-                  language={(match && match[1]) || ''}
-                  value={String(children).replace(/\n$/, '')}
-                  {...props}
-                />
-              )
-            }
-          }}
-        >
-          {text}
-        </MemoizedReactMarkdown>
+      <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1 ouptput-div">
+        {markdownToHtml(text)}
+        <div className="flex justify-end">
+          <div
+            className="move-buttonClick"
+            onClick={() => handleMoveToCanvas(text)}
+            style={{ borderLeft: '2px solid #000', cursor: 'pointer' }}
+          >
+            <IconArrowRight style={{ color: '#000' }} />
+          </div>
+        </div>
       </div>
     </div>
   )
