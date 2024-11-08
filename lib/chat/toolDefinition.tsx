@@ -922,8 +922,8 @@ export const aiIntern = async ({
     - Continue asking questions until all necessary details are gathered.
     - Provide a friendly, patient, and clear tone during interactions.
     - Never reply in JSON format or include any technical code unless specifically asked by the user.
-  - **Do not use <br> tags or HTML formatting**. Use plain text with two spaces followed by "Enter" for line breaks instead.
-  - Format multiline content using Markdown-style line breaks as described.
+      - **Do not use <br> tags or HTML formatting**.
+  - Keep the numbering in one line
     
   `
   })
