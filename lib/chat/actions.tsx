@@ -223,7 +223,7 @@ const streamData = async ({
     )
     .addConditionalEdges(
       'determineSearchType',
-      ({ searchStrategy }) => searchStrategy,
+      ({ searchStrategy }) => 'useAI',
       {
         useAI: 'aiIntern',
         useWeb: 'perplexitySearch'

@@ -23,26 +23,26 @@ export interface ChatPanelProps {
 }
 export const exampleMessages = [
   {
-    icon: <ClipboardIcon style={{ color: '#3B86F7' }} />,
+    icon: <ClipboardIcon style={{ color: '#003366' }} />,
     heading: 'Initial Dairy Data Records',
     subheading: 'Retrieve Sample Dairy Records for Review',
     message: `Retrieve the first 10 records from the dairy data tables, displaying all relevant details for each entry.`
   },
   {
-    icon: <ClipboardIcon style={{ color: '#3B86F7' }} />,
+    icon: <ClipboardIcon style={{ color: '#003366' }} />,
     heading: 'Weight by Tag for Specific Study',
     subheading: 'Find Weight Data for Tag IDs in Study "BC500"',
     message: 'For Tag_ID= [33], retrieve Pen_ID and Animal_Count'
   },
   {
-    icon: <ClipboardIcon style={{ color: '#3B86F7' }} />,
+    icon: <ClipboardIcon style={{ color: '#003366' }} />,
     heading: 'Pen ID and Animal Count by Tag',
     subheading: 'Fetch Pen and Animal Data for Tag "33"',
     message:
       'Write an SQL query to fetch the pen ID and animal count for the record with tag ID "33" in the beef animal information table order by pen id.'
   },
   {
-    icon: <ClipboardIcon style={{ color: '#3B86F7' }} />,
+    icon: <ClipboardIcon style={{ color: '#003366' }} />,
     heading: 'Gate and Animal Count for Study',
     subheading: 'Find Gate and Animal Data for Study "CF718"',
     message: 'For study_id= [CF718], find all Gate_IDs and their Animal_Counts'
@@ -72,58 +72,8 @@ export function ChatPanel({
       />
 
       <div className="mx-auto sm:max-w-[740px] sm:px-4">
-        <div className="grid sm:grid-cols-2 gap-2 sm:gap-4 px-4 sm:px-0 max-w-[700px] ">
-          {messages.length === 0 &&
-            exampleMessages.map((example, index) => (
-              <div
-                key={example.heading}
-                className={cn(
-                  'flex flex-col items-center  cursor-pointer bg-white text-zinc-950 rounded-2xl border p-4 sm:p-6 hover:bg-zinc-100 shadow-md transition-colors',
-                  index > 1 && 'hidden md:flex'
-                )}
-                onClick={async () => {
-                  setMessages(currentMessages => [
-                    ...currentMessages,
-                    {
-                      id: nanoid(),
-                      display: <UserMessage>{example.message}</UserMessage>
-                    }
-                  ])
+        <div className="grid sm:grid-cols-2 gap-2 sm:gap-4 px-4 sm:px-0 max-w-[700px] "></div>
 
-                  try {
-                    const responseMessage = await submitUserMessage({
-                      content: example.message,
-                      chatId: chatId,
-                      agent: AGENTS.PANDA
-                    })
-                    queryClient.invalidateQueries({
-                      queryKey: ['chats'],
-                      exact: true,
-                      refetchType: 'active'
-                    })
-
-                    setMessages(currentMessages => [
-                      ...currentMessages,
-                      responseMessage
-                    ])
-                  } catch (error) {
-                    const errorMessage =
-                      error instanceof Error ? error.message : String(error)
-                    toast(<div className="text-red-600">{errorMessage}</div>)
-                  }
-                }}
-              >
-                <div className="font-medium">{example.icon}</div>
-                <div className="font-medium pt-2">{example.heading}</div>
-                <div className="text-sm text-zinc-800 pt-2 text-center">
-                  {example.subheading}
-                </div>
-              </div>
-            ))}
-        </div>
-        {/* {!isEmptyScreen && (
-          <SelectionBoxes selected={selected} setSelected={setSelected} />
-        )} */}
         <div className="mb-[60px]">
           {!isEmptyScreen ? (
             <div className="bg-white py-4 border-t border-zinc-200 lg:fixed lg:bottom-0 lg:left-[300px] lg:right-0 lg:pl-[0px] lg:mx-[0px] flex justify-center">

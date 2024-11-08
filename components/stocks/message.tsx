@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic'
 
 export function UserMessage({ children }: { children: React.ReactNode }) {
   return (
-    <div className="group relative flex items-start md:-ml-12 bg-[#3B86F7] text-white p-5 rounded-lg border userMessage">
+    <div className="group relative flex items-start md:-ml-12 bg-[#003366] text-white p-5 rounded-lg border userMessage">
       <div className="flex size-[25px] shrink-0 select-none items-center justify-center rounded shadow-sm text-black">
         <IconUser />
       </div>

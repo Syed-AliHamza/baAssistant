@@ -23,7 +23,7 @@ export default function SignupPage() {
               </div>
               <h1 className="text-2xl md:text-4xl font-bold text-gray-800 mb-0 md-mb-4'">
                 TALK TO <br /> YOUR{' '}
-                <span className="text-[#3B86F7]">DATA VERSE</span>
+                <span className="text-[#003366]">DATA VERSE</span>
               </h1>
               <p className="text-gray-600">
                 Empowering businesses with cutting-edge technology and

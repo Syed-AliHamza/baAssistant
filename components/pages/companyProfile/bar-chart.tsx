@@ -95,7 +95,7 @@ export default function WeeklyControlHighGainChart({ data }) {
         }
       }
     },
-    colors: ['#3B86F7', '#FFD700', '#90EE90', '#00E396'],
+    colors: ['#003366', '#FFD700', '#90EE90', '#00E396'],
     legend: {
       position: 'top'
     },

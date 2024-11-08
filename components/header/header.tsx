@@ -75,60 +75,14 @@ export default function HeaderComponent() {
               className="flex cursor-pointer"
               onClick={() => router.push('/companyProfile')}
             >
-              <Image
+              {/* <Image
                 src="/images/company-logo-lol.svg"
                 alt="Company Logo"
                 width={104}
                 height={31}
-              />
+              /> */}
+              Smart BA
             </div>
-
-            {/* Navigation for Desktop */}
-            <nav className="hidden md:flex items-center ml-4">
-              <Link href="/companyProfile">
-                <button
-                  className={`${
-                    pathname === '/companyProfile'
-                      ? 'text-white bg-[#3B86F7]'
-                      : 'text-[#3B86F7] border-[#3B86F7]'
-                  } px-4 py-2 rounded-lg`}
-                >
-                  Dashboard
-                </button>
-              </Link>
-              {/* <Link href="/chat">
-                <button
-                  className={`${
-                    pathname.match(/^\/chat(\/\d+)?$/)
-                      ? 'text-white bg-[#3B86F7]'
-                      : 'text-[#3B86F7] border-[#3B86F7]'
-                  } px-4 py-2 rounded-lg flex items-center gap-2 border hover:opacity-90`}
-                >
-                  <img
-                    src="/images/nova.svg"
-                    alt="chat icon"
-                    className="w-5 h-5"
-                  />
-                  Chat With Nova
-                </button>
-              </Link> */}
-              <Link href="/chat">
-                <button
-                  className={`${
-                    pathname.match(/^\/chat(\/\d+)?$/)
-                      ? 'text-white bg-[#3B86F7]'
-                      : 'text-[#3B86F7] border-[#3B86F7]'
-                  } px-4 py-2 rounded-lg`}
-                >
-                  <img
-                    src="/images/nova.svg"
-                    alt="chat icon"
-                    className="w-7 h-7 inline-block mr-2"
-                  />
-                  Chat With Nova
-                </button>
-              </Link>
-            </nav>
           </div>
 
           {/* Profile Avatar for Desktop */}
@@ -187,7 +141,7 @@ export default function HeaderComponent() {
           {/* Three-Dot Menu Icon for Mobile */}
           <div className="flex md:hidden items-center" ref={mobileMenuRef}>
             <button onClick={toggleMobileMenu}>
-              <HiMenu className="text-[#3B86F7] size-6" />
+              <HiMenu className="text-[#003366] size-6" />
             </button>
           </div>
 

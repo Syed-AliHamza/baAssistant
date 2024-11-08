@@ -27,7 +27,7 @@ export function NewChat({ isResponding, handleClick, id }) {
                 >
                   <IconPlus
                     className={clsx(
-                      'size-[30px] p-1 bg-[#3B86F7] text-white rounded-full ',
+                      'size-[30px] p-1 bg-[#003366] text-white rounded-full ',
                       isDisabled ? 'cursor-not-allowed' : ''
                     )}
                   />

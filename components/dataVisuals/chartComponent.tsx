@@ -93,7 +93,7 @@ export function ChartComponent({
             pieChartRef
           })
         }
-        className="w-full mt-4 bg-[#3B86F7] text-white hover:bg-[#3B86F7] rounded-lg py-2 px-4 flex items-center justify-center transition-all"
+        className="w-full mt-4 bg-[#003366] text-white hover:bg-[#003366] rounded-lg py-2 px-4 flex items-center justify-center transition-all"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

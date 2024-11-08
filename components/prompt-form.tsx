@@ -379,7 +379,7 @@ export function PromptForm({
         disabled={input === '' || isResponding}
         className="bg-transparent shadow-none text-zinc-950 hover:bg-zinc-200 ml-2"
       >
-        <IconArrowElbow className="size-[40px] rounded-[5px] bg-[#3B86F7] text-white" />
+        <IconArrowElbow className="size-[40px] rounded-[5px] bg-[#003366] text-white" />
       </Button>
     </form>
   )

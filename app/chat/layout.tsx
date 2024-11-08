@@ -14,7 +14,7 @@ export default function ChatLayout({ children }: ChatLayoutProps) {
     <>
       <div className="bg-muted p-5 flex">
         {/* <h2 className='text-black-600 p-5'>Chat AI</h2>  */}
-        <SidebarDesktop />
+        {/* <SidebarDesktop /> */}
         <div
           id="mainchatarea"
           style={{

@@ -52,7 +52,7 @@ export default function Pagination({
             disabled={!!loading || currentPage === page} // Prevent clicking the selected page
             className={`px-2 py-1 border rounded text-sm ${
               currentPage === page
-                ? 'bg-[#3B86F7] text-white font-semibold cursor-not-allowed'
+                ? 'bg-[#003366] text-white font-semibold cursor-not-allowed'
                 : 'bg-white text-black hover:bg-gray-100'
             } transition-all`}
           >

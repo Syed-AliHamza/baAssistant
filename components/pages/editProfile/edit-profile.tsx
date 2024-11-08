@@ -292,7 +292,7 @@ const EditProfilePage = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="bg-#3B86F7-600 flex">
+                  <div className="bg-#003366-600 flex">
                     <Button variant="outline">Cancle</Button>
                     <Button
                       variant="outline"

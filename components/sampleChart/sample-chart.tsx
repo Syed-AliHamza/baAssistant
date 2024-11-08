@@ -52,7 +52,7 @@ const SentimentsGraph = ({ salesOvertime = [] }) => {
       min: Math.min(...netSalesData) - 1000000, // Adjust min to fit the data range
       max: Math.max(...netSalesData) + 1000000 // Adjust max to fit the data range
     },
-    colors: ['#3B86F7'], // Custom color for bars
+    colors: ['#003366'], // Custom color for bars
     title: {
       text: ''
     }

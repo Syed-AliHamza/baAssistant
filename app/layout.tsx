@@ -82,7 +82,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontBody.variable
         )}
       >
-        <NextTopLoader color="#3B86F7" showSpinner={false} />
+        <NextTopLoader color="#003366" showSpinner={false} />
         <ClerkWrapper>
           <AuthProvider>
             <Toaster position="top-center" />

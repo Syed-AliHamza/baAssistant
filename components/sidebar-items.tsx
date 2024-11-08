@@ -31,7 +31,7 @@ export function SidebarItems({ chats, selectedChatId, setSelectedChatId }) {
               onClick={() => handleChatClick(chat.id)}
               className={`cursor-pointer ${
                 selectedChatId === chat.id
-                  ? 'bg-[#3B86F7] mr-[30px] rounded-lg border text-white'
+                  ? 'bg-[#003366] mr-[30px] rounded-lg border text-white'
                   : ''
               }`}
             >

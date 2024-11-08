@@ -13,7 +13,7 @@ const colorMap = {
   'Low Frequency Paid Customers': '#D32F2F',
   'Medium Frequency Paid Customers': '#F9A825',
   'High Frequency Paid Customers': '#2D8C75',
-  'Very High-Value Customers': '#3B86F7'
+  'Very High-Value Customers': '#003366'
 }
 const getRandomColor = () => {
   const letters = '0123456789ABCDEF'

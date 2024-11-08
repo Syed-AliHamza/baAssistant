@@ -317,7 +317,7 @@ const CompanyProfilePage = ({
                 </Card>
                 <Card className="col-span-2 lg:col-span-1 bg-[#F5F6FE]">
                   <div className="flex items-center space-x-2 p-5">
-                    <div className="flex items-center justify-center bg-[#3B86F7] text-white rounded-full p-2">
+                    <div className="flex items-center justify-center bg-[#003366] text-white rounded-full p-2">
                       <ClipboardIcon className="text-white size-6" />{' '}
                     </div>
                     <div className="text-[#524E53] font-inter text-2xl font-semibold">
