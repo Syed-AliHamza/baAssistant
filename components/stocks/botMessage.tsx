@@ -136,15 +136,15 @@ export function BotMessage({
             }
           }}
         ></MemoizedReactMarkdown> */}
-        {text}
-        {/* <div
+        {/* {markdownToHtmlTable(text)} */}
+        <div
           className="ml-4 flex-1 space-y-2 overflow-hidden px-1 ouptput-div"
           dangerouslySetInnerHTML={{ __html: markdownToHtmlTable(text) }}
-        ></div> */}
+        ></div>
         <div className="flex justify-end">
           <div
             className="move-buttonClick"
-            onClick={() => handleMoveToCanvas(text)}
+            onClick={() => handleMoveToCanvas(markdownToHtmlTable(text))}
             style={{ borderLeft: '2px solid #000', cursor: 'pointer' }}
           >
             <IconArrowRight style={{ color: '#000' }} />

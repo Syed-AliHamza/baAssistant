@@ -19,8 +19,6 @@ export interface ChatProps extends React.ComponentProps<'div'> {
 export function Chat({ id, className }: ChatProps) {
   const router = useRouter()
   const [input, setInput] = useState('')
-  const [copyBotMessage, setCopyBotMessage] = useState('<p>Start typing...</p>')
-
   const [messages] = useUIState()
   const [aiState] = useAIState()
   useEffect(() => {
@@ -47,6 +45,7 @@ export function Chat({ id, className }: ChatProps) {
 
   const { messagesRef, scrollRef, isAtBottom, scrollToBottom } =
     useScrollAnchor()
+  localStorage.setItem('isCopied', '')
 
   return (
     <div className="grid grid-cols-2 grid-rows-1 gap-4">
@@ -73,10 +72,7 @@ export function Chat({ id, className }: ChatProps) {
         />
       </div>
       <div>
-        <CustomCKEditor
-          content={copyBotMessage}
-          // onChange={handleEditorChange}
-        />
+        <CustomCKEditor initialData="<p>Start typing... tehere</p>" />
       </div>
     </div>
   )
