@@ -9,7 +9,7 @@ interface ChatLayoutProps {
 }
 
 export default function ChatLayout({ children }: ChatLayoutProps) {
-  const { isSidebarOpen } = useSidebar()
+  // const { isSidebarOpen } = useSidebar()
   return (
     <>
       <div className="bg-muted p-5 flex">
@@ -19,7 +19,7 @@ export default function ChatLayout({ children }: ChatLayoutProps) {
           id="mainchatarea"
           style={{
             transition: 'all .3s ease-out',
-            marginLeft: isSidebarOpen ? '300px' : '60px',
+            // marginLeft: isSidebarOpen ? '300px' : '60px',
             width: '100%'
           }}
         >
