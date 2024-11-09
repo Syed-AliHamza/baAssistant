@@ -41,6 +41,23 @@ const CustomCKEditor = ({ initialData }) => {
 
   return (
     <div>
+      <div
+        ref={sourceRef}
+        id="source-html"
+        style={{ marginBottom: '10px', height: '76vh', overflow: 'auto' }}
+      >
+        <CKEditor
+          editor={ClassicEditor}
+          data={editorData}
+          onChange={(event, editor) => {
+            const data = editor.getData()
+            setEditorData(data)
+            if (onChange) {
+              onChange(data)
+            }
+          }}
+        />
+      </div>
       <div className="flex justify-end">
         <button
           onClick={() => {
@@ -53,19 +70,6 @@ const CustomCKEditor = ({ initialData }) => {
         >
           Export as Word
         </button>
-      </div>
-      <div ref={sourceRef} id="source-html">
-        <CKEditor
-          editor={ClassicEditor}
-          data={editorData}
-          onChange={(event, editor) => {
-            const data = editor.getData()
-            setEditorData(data)
-            if (onChange) {
-              onChange(data)
-            }
-          }}
-        />
       </div>
     </div>
   )

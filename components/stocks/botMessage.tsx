@@ -35,7 +35,7 @@ export function BotMessage({
   const routId = match ? +match[1] : null
 
   const handleMoveToCanvas = text => {
-    localStorage.setItem('isCopied', text)
+    localStorage.setItem('isCopied', localStorage.getItem('isCopied') + text)
     window.dispatchEvent(new Event('respondingisCopied'))
   }
 
@@ -81,7 +81,7 @@ export function BotMessage({
   return (
     <div
       className={cn(
-        'group relative bottom-[20px] flex items-start md:-ml-6 systemChat rounded-lg border',
+        'group relative bottom-[20px] flex items-start systemChat rounded-lg border',
         className
       )}
     >
@@ -138,7 +138,6 @@ export function BotMessage({
         ></MemoizedReactMarkdown> */}
         {/* {markdownToHtmlTable(text)} */}
         <div
-          className="ml-4 flex-1 space-y-2 overflow-hidden px-1 ouptput-div"
           dangerouslySetInnerHTML={{ __html: markdownToHtmlTable(text) }}
         ></div>
         <div className="flex justify-end">

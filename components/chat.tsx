@@ -50,7 +50,7 @@ export function Chat({ id, className }: ChatProps) {
   return (
     <div className="grid grid-cols-2 grid-rows-1 gap-4">
       <div
-        className={`duration-300 ease-in-out p-0 size-full bg-white border-r bg-muted  peer-[[data-state=open]] peer-[[data-state=open]] group ${
+        className={`duration-300 ease-in-out p-0 size-full bg-white border bg-muted  peer-[[data-state=open]] peer-[[data-state=open]] group ${
           !messages.length ? ' bg-muted flex flex-col min-h-[85.5vh]' : ''
         }`}
         ref={scrollRef}
@@ -71,8 +71,17 @@ export function Chat({ id, className }: ChatProps) {
           isEmptyScreen={!messages?.length}
         />
       </div>
-      <div>
-        <CustomCKEditor initialData="<p>Start typing... tehere</p>" />
+      <div style={{ position: 'relative', overflow: 'auto', height: '100vh' }}>
+        <div
+          style={{
+            position: 'fixed',
+            top: '86px',
+            right: '40px',
+            width: '45%'
+          }}
+        >
+          <CustomCKEditor initialData="<p>Start typing... tehere</p>" />
+        </div>
       </div>
     </div>
   )

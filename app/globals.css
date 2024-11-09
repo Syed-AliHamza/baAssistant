@@ -141,3 +141,8 @@
     transition: height 0.3s ease-in-out;
   }
 }
+td,
+th {
+  text-align: left;
+  font-weight: normal;
+}
