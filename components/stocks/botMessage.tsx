@@ -90,10 +90,10 @@ export function BotMessage({
         style={{ backgroundColor: '#D9D9D9' }}
       >
         <Image
-          src="/images/novaAgent.svg"
+          src="/images/novaAgent.jpg"
           alt="cosmic logo"
-          width={30}
-          height={30}
+          width={40}
+          height={80}
         />
       </div>
       <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1 ouptput-div">
