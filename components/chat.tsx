@@ -24,10 +24,10 @@ export function Chat({ id, className }: ChatProps) {
   useEffect(() => {
     if (id) {
       setTimeout(() => {
-        window.scrollTo({
-          top: document.body.scrollHeight,
-          behavior: 'smooth'
-        })
+        // window.scrollTo({
+        //   top: document.body.scrollHeight,
+        //   behavior: 'smooth'
+        // })
       }, 1500)
     } else {
       localStorage.removeItem('lastReloadCount')

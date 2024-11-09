@@ -62,7 +62,7 @@ export function BotMessage({
       isFinish
     ) {
       localStorage.setItem('lastReloadCount', messageCount)
-      window.location.reload()
+      // window.location.reload()
     }
 
     return handleUnmount
