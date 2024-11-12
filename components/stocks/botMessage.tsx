@@ -10,15 +10,19 @@ import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import { StreamableValue, useUIState } from 'ai/rsc'
 import Image from 'next/image'
+import { IconArrowRight } from '@/components/ui/icons'
+import { htmlToMarkdown, markdownToHtml, markdownToHtmlTable } from '../parser'
 
 export function BotMessage({
   content,
   className,
+  isCopied,
   id,
   isFinish
 }: {
   content: string | StreamableValue<string>
   className?: string
+  isCopied: string
   id: number
   isFinish?: boolean
 }) {
@@ -29,6 +33,12 @@ export function BotMessage({
   const [messages] = useUIState()
   const match = pathname.split('/chat/')
   const routId = match ? +match[1] : null
+
+  const handleMoveToCanvas = text => {
+    localStorage.setItem('isCopied', localStorage.getItem('isCopied') + text)
+    window.dispatchEvent(new Event('respondingisCopied'))
+  }
+
   const handleUnmount = () => {
     localStorage.setItem('isResponding', 'false')
     window.dispatchEvent(new Event('respondingStatusChange'))
@@ -52,7 +62,7 @@ export function BotMessage({
       isFinish
     ) {
       localStorage.setItem('lastReloadCount', messageCount)
-      window.location.reload()
+      // window.location.reload()
     }
 
     return handleUnmount
@@ -67,10 +77,11 @@ export function BotMessage({
     }
   }, [isFinish])
 
+  console.log(isCopied, 'isCopied')
   return (
     <div
       className={cn(
-        'group relative bottom-[20px] flex items-start md:-ml-6 systemChat rounded-lg border',
+        'group relative bottom-[20px] flex items-start systemChat rounded-lg border',
         className
       )}
     >
@@ -85,8 +96,8 @@ export function BotMessage({
           height={80}
         />
       </div>
-      <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
-        <MemoizedReactMarkdown
+      <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1 ouptput-div">
+        {/* <MemoizedReactMarkdown
           className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
           remarkPlugins={[remarkGfm, remarkMath]}
           components={{
@@ -124,9 +135,20 @@ export function BotMessage({
               )
             }
           }}
-        >
-          {text}
-        </MemoizedReactMarkdown>
+        ></MemoizedReactMarkdown> */}
+        {/* {markdownToHtmlTable(text)} */}
+        <div
+          dangerouslySetInnerHTML={{ __html: markdownToHtmlTable(text) }}
+        ></div>
+        <div className="flex justify-end">
+          <div
+            className="move-buttonClick"
+            onClick={() => handleMoveToCanvas(markdownToHtmlTable(text))}
+            style={{ borderLeft: '2px solid #000', cursor: 'pointer' }}
+          >
+            <IconArrowRight style={{ color: '#000' }} />
+          </div>
+        </div>
       </div>
     </div>
   )

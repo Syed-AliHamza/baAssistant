@@ -76,7 +76,7 @@ export function ChatPanel({
 
         <div className="mb-[60px]">
           {!isEmptyScreen ? (
-            <div className="bg-white py-4 border-t border-zinc-200 lg:fixed lg:bottom-0 lg:left-[300px] lg:right-0 lg:pl-[0px] lg:mx-[0px] flex justify-center">
+            <div className="bg-white py-4 border-t border-zinc-200 lg:bottom-0 lg:left-[300px] lg:right-0 lg:pl-[0px] lg:mx-[0px] flex justify-center">
               <PromptForm
                 input={input}
                 setInput={setInput}

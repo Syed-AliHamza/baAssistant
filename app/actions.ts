@@ -357,33 +357,33 @@ async function getAccessToken() {
     throw error;
   }
 }
-const credential = new ClientSecretCredential(process.env.TENANT_ID, process.env.CLIENT_ID, process.env.CLIENT_SECRET);
+// const credential = new ClientSecretCredential(process.env.TENANT_ID, process.env.CLIENT_ID, process.env.CLIENT_SECRET);
 
 
 
 
 export async function emailSender({ label, receiver, subject, body, cc, bcc }) {
 
-  const transporter = nodemailer.createTransport({
-    host: EMAIL_HOST,
-    port: EMAIL_HOST_PORT,
-    secure: false,
-    auth: {
-      type: 'oauth2',
-      user: SENDER_EMAIL,
-      clientId: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      tenantId: process.env.TENANT_ID,
-      accessToken: await getAccessToken(),
-    },
-  });
-  const mailOptions = {
-    from: { name: label, address: SENDER_EMAIL },
-    to: receiver,
-    subject,
-    cc,
-    bcc,
-    html: body,
-  };
-  transporter.sendMail(mailOptions);
+  // const transporter = nodemailer.createTransport({
+  //   host: EMAIL_HOST,
+  //   port: EMAIL_HOST_PORT,
+  //   secure: false,
+  //   auth: {
+  //     type: 'oauth2',
+  //     user: SENDER_EMAIL,
+  //     clientId: process.env.CLIENT_ID,
+  //     clientSecret: process.env.CLIENT_SECRET,
+  //     tenantId: process.env.TENANT_ID,
+  //     accessToken: await getAccessToken(),
+  //   },
+  // });
+  // const mailOptions = {
+  //   from: { name: label, address: SENDER_EMAIL },
+  //   to: receiver,
+  //   subject,
+  //   cc,
+  //   bcc,
+  //   html: body,
+  // };
+  // transporter.sendMail(mailOptions);
 };

@@ -23,9 +23,7 @@ export default function ChatLayout({ children }: ChatLayoutProps) {
             width: '100%'
           }}
         >
-          <div className="relative w-full  overflow-hidden bg-white border">
-            {children}
-          </div>
+          <div className="relative w-full  overflow-hidden">{children}</div>
         </div>
       </div>
     </>

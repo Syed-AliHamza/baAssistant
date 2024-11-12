@@ -924,6 +924,7 @@ export const aiIntern = async ({
     - Never reply in JSON format or include any technical code unless specifically asked by the user.
       - **Do not use <br> tags or HTML formatting**.
   - Keep the numbering in one line
+  - **When finalizing user stories, return only the tabular response without additional comments or asking for review.**
     
   `
   })
