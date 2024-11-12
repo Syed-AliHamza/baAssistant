@@ -35,7 +35,7 @@ export default function LoginForm() {
           <div className="w-full md:w-1/2 p-0 md:p-10 flex items-start md:items-center justify-start md:justify-center">
             <div className="w-full max-w-xs rounded-lg p-6 md-p-0 ">
               <SignedOut>
-                <SignIn forceRedirectUrl="/" signUpUrl="/signup" />
+                <SignIn forceRedirectUrl="/chat" signUpUrl="/signup" />
               </SignedOut>
             </div>
           </div>
