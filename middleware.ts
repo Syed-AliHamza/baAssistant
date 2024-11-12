@@ -11,9 +11,9 @@ export default clerkMiddleware((auth, req) => {
     return NextResponse.redirect(new URL('/', req.url))
   }
 
-  // if (!userId && isProtectedRoute(req)) {
-  //   return NextResponse.redirect(new URL('/login', req.url))
-  // }
+  if (!userId && isProtectedRoute(req)) {
+    return NextResponse.redirect(new URL('/login', req.url))
+  }
 
 
   return NextResponse.next()
